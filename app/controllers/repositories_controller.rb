@@ -4,7 +4,7 @@ class RepositoriesController < ApplicationController
   # GET /repositories
   # GET /repositories.json
   def index
-    @q = Repository.ransack(params[:q])
+    @q = Repository.ransack(params[:q].permit!)
     @q.sorts = 'name asc' if @q.sorts.empty?
     @repositories = @q.result.page(params[:page])
   end
