@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :users
+  root 'batch#new'
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :auto_numbers
+  resources :names
+  resources :repositories
+
+  get 'batch' => 'batch#new'
+  post 'batch' => 'batch#create'
+
+  get 'autocomplete/names' => 'autocomplete#names'
+  get 'autocomplete/repositories' => 'autocomplete#repositories'
+
+  get '/ping' => 'ping#verify'
 end
