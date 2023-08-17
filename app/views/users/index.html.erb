@@ -20,9 +20,19 @@
         <td><%= user.name %></td>
         <td>
           <%= link_to 'Edit', edit_user_path(user), class: 'btn btn-info' %>
-          <%= link_to 'Delete', user, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+          <!-- <%= link_to 'Delete', user, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %> -->
+          <button class="btn btn-danger"
+            hx-delete="/users/<%= user.id  %>"
+            hx-vals='{"authenticity_token": "<%= session[:_csrf_token] %>"}'
+            hx-target='body'
+          >
+          Delete
+          </button>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<h1>CSRF Token</h1>
+<p><%= session[:_csrf_token] %></p>
