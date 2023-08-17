@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :users
+  get '/users/:id/cancel_edit' => 'users#cancel_edit'
+
   root 'batch#new'
 
   resources :auto_numbers

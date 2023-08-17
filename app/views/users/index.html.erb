@@ -7,7 +7,7 @@
 <button class="btn btn-success"
 hx-get="<%= new_user_path %>"
 hx-swap="outerHTML"
->s
+>
 New
 </button>
 
@@ -26,7 +26,16 @@ New
         <td><%= link_to user.cas_directory_id, user %></td>
         <td><%= user.name %></td>
         <td>
-          <%= link_to 'Edit', edit_user_path(user), class: 'btn btn-info' %>
+          <!-- <%= link_to 'Edit', edit_user_path(user), class: 'btn btn-info' %> -->
+
+          <button class="btn btn-info"
+            hx-get="<%= edit_user_path(user)  %>"
+            hx-target='closest tr'
+            hx-swap='outerHTML'
+          >
+          Edit
+          </button>
+
           <!-- <%= link_to 'Delete', user, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %> -->
           <button class="btn btn-danger"
             hx-delete="/users/<%= user.id  %>"
