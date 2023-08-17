@@ -24,6 +24,7 @@
           <button class="btn btn-danger"
             hx-delete="/users/<%= user.id  %>"
             hx-vals='{"authenticity_token": "<%= session[:_csrf_token] %>"}'
+            hx-confirm="Are you sure you want to delete this contact?"
             hx-target='body'
           >
           Delete
