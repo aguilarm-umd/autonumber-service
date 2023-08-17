@@ -2,7 +2,14 @@
 
 <h1>Users</h1>
 
-<%= link_to 'New', new_user_path, class: 'btn btn-success' %>
+<!-- <%= link_to 'New', new_user_path, class: 'btn btn-success' %> -->
+
+<button class="btn btn-success"
+hx-get="<%= new_user_path %>"
+hx-swap="outerHTML"
+>s
+New
+</button>
 
 <table class="table table-striped">
   <thead>
