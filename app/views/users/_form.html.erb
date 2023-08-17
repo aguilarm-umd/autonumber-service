@@ -15,8 +15,15 @@
       <th></th>
       <td>
         <%= f.submit class: 'btn btn-success' %>
-        <%= link_to 'Cancel', @user, class: 'btn btn-danger' %>
-        <%= link_to 'List All Users', users_path, class: 'btn btn-default' %>
+        <!-- <%= link_to 'Cancel', @user, class: 'btn btn-danger' %> -->
+        <button class="btn btn-danger"
+          hx-target="closest form"
+          hx-swap="outerHTML"
+
+        >
+          Cancel
+        </button>
+        <!-- <%= link_to 'List All Users', users_path, class: 'btn btn-default' %> -->
       </td>
     </tr>
     </tbody>
